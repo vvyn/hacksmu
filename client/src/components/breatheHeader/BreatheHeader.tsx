@@ -25,16 +25,15 @@ export function BreatheHeader() {
               </Text>
             </Text>
             <div className={classes.rectangle}>
-            <Title className={classes.title} pt={150}>
+            <Title className={classes.title} pt={150} c={'White'} fz={60}>
               Take a {' '}
               <Text
                 component="span"
                 inherit
-                variant="gradient"
-                gradient={{ from: 'cyan', to: 'blue', deg: 90 }}
+                c={'White'}
                 className={classes.cursive} 
               >
-                deep breath
+                deep breath...
               </Text>
             </Title>
 

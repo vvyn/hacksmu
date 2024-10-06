@@ -51,8 +51,10 @@
     }
   }
   .cursive {
-    font-family: 'Dancing Script', cursive;  
+    font-family: 'Great Vibes', cursive;  
     font-weight: 500;
+    display: block;      
+  margin-left: 20px;
   }
   
   .description {

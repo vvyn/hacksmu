@@ -1,5 +1,5 @@
-const API_ENDPOINT = "https://hacksmu.mikz.dev";
-// const API_ENDPOINT = "http://localhost:8000";
+// const API_ENDPOINT = "https://hacksmu.mikz.dev";
+const API_ENDPOINT = "http://localhost:8000";
 
 export async function newUser(username: string, name: string) {
     const res = await fetch(`${API_ENDPOINT}/user`, {
@@ -94,6 +94,26 @@ export async function acceptFriendRequest(username: string, friend: string) {
     if (!res.ok) {
         console.error(await res.json());
         throw new Error("Failed to accept friend request");
+    }
+
+    return res.json();
+}
+
+export async function setToken(username: string, token: string) {
+    const res = await fetch(`${API_ENDPOINT}/token`, {
+        method: "POST",
+        headers: {
+            'Content-type':'application/json',
+        },
+        body: JSON.stringify({
+            id: username,
+            token,
+        }),
+    });
+
+    if (!res.ok) {
+        console.error(await res.json());
+        throw new Error("Failed to set token");
     }
 
     return res.json();

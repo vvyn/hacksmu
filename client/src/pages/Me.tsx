@@ -9,13 +9,13 @@ function Me() {
   const [isPopupOpen, setIsPopupOpen] = useState(false); // State for managing popup visibility
 
   const handleBack = () => {
-    navigate('/home'); // Navigate back to home page
+    navigate('/home');
   };
 
   const handlePoke = (friendName: string) => {
     toast.success(`You poked ${friendName}!`, {
-      position: "top-center", // Move toast to the top center
-      autoClose: 3000, // Notification will auto-close after 3 seconds
+      position: "top-center",
+      autoClose: 3000,
     });
   };
 
@@ -25,7 +25,7 @@ function Me() {
 
   return (
     <div className="ProfileContainer">
-      <ToastContainer position="top-center" />
+      <ToastContainer position="top-center" /> {/* ToastContainer at the top */}
       <button className="BackButton" onClick={handleBack}>← </button>
       <div className="ProfileHeader">
         <img className="ProfileImage" src="/profile.png" alt="Profile" />
