@@ -2,9 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Me.css'; // Import the CSS file
+import { useState } from 'react'; // Import useState
 
 function Me() {
   const navigate = useNavigate();
+  const [isPopupOpen, setIsPopupOpen] = useState(false); // State for managing popup visibility
 
   const handleBack = () => {
     navigate('/home'); // Navigate back to home page
@@ -15,6 +17,10 @@ function Me() {
       position: "top-center", // Move toast to the top center
       autoClose: 3000, // Notification will auto-close after 3 seconds
     });
+  };
+
+  const togglePopup = () => {
+    setIsPopupOpen(!isPopupOpen); // Toggle popup visibility
   };
 
   return (
@@ -36,6 +42,9 @@ function Me() {
 
       <div className="FriendsSection">
         <h4>Friends</h4>
+        <div className='PendF'>
+          Pending Friends <span className="Arrow">→</span>
+        </div>
         <div className="FriendItem">
           <span>Bud</span>
           <span>Today</span>
@@ -46,16 +55,28 @@ function Me() {
           <span>2+ days ago</span>
           <button className="PokeButton" onClick={() => handlePoke('Buddy')}>Poke!</button>
         </div>
-        <button className="AddFriendsButton">Add Friends!</button>
+        <button className="AddFriendsButton" onClick={togglePopup}>Add Friends!</button>
       </div>
 
+
+      {isPopupOpen && (
+        <div className="Popup">
+          <div className="PopupContent">
+            <h4>Add Friends</h4>
+            <p>Enter the id's of friends you want to add:</p>
+            <input type="text" placeholder="Friend's name" />
+            <button className="CloseButton" onClick={togglePopup}>Close</button>
+            <button className="SubmitButton">Add Friend</button>
+          </div>
+        </div>
+      )}
 
       <h4>Total Activity</h4>
 
       <div className="AchievementsSection">
         <div className="Achievement">10 Days!</div>
         <div className="Achievement">30 Days!</div>
-        <div className="Achievement2">15 Challanges!</div>
+        <div className="Achievement2">15 Challenges!</div>
       </div>
     </div>
   );
