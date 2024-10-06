@@ -51,11 +51,10 @@ function AddHabit() {
         </div>
       </div>
 
-      <div className='text-left'>
-        <div className='font-bold text-xs mb-4'>REMINDERS</div>
-      </div>
-
       <button className="w-3/4 mx-2 mt-2 rounded-full py-3 text-black bg-gradient-to-br from-[#F3F4F6] to-[#FFFFFF]">Add Reminder</button>
+
+      <img src="/corg_walk.gif" alt="Add Reminder" className="w-3/4 mx-4 mt-4" />
+
       <button className="w-3/4 mx-4 mt-4 rounded-full py-3 text-white bg-gradient-to-br from-[#1D95F4] to-[#5AD7F5]">Let's Go →</button>
     </div>
   );
