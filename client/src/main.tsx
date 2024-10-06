@@ -1,6 +1,7 @@
 import '@mantine/core/styles.css';
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import firebaseConfig from './firebaseConfig.json';
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './index.css'
@@ -15,6 +16,10 @@ import Home from './pages/Home.tsx';
 import Test from './pages/test.tsx';
 import AddHabit from './components/AddHabit.tsx';
 import ChallengeProgressPage from './pages/ChallengeProgressPage.tsx';
+import {app, messaging} from './firebaseConfig.ts';
+import { getToken } from 'firebase/messaging';
+import { getCookie } from './cookie';
+import { setToken } from './api';
 
 const home = createBrowserRouter([
   {
@@ -71,8 +76,32 @@ const home = createBrowserRouter([
   }
 ]);
 
+function requestPermission() {
+  console.log('Requesting permission...');
+  Notification.requestPermission().then((permission) => {
+    if (permission === 'granted') {
+      console.log('Notification permission granted.');
+    }
+  });
+}
+
+requestPermission();
+
+getToken(messaging, { vapidKey: firebaseConfig.vapidKey }).then((token) => {
+    console.log("kill me")
+    if (token) {
+        const cook = getCookie("username")
+        console.log("COOKIE: ", cook, " | TOKEN: ", token)
+        if (cook === "") return;
+        setToken(cook, token);
+    } else {
+        console.log('No registration token available. Request permission to generate one.');
+    }
+});
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <RouterProvider router={home} />
   </StrictMode>,
 )
+
