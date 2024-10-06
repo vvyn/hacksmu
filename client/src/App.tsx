@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       <div>
-      <MantineProvider >
-        <BreatheHeader />
+        <MantineProvider >
+          <BreatheHeader />
         </MantineProvider>
       </div>
     </>

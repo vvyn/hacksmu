@@ -115,7 +115,7 @@ function Me() {
         </div>
       )}
 
-      <h4>Total Activity</h4>
+      <h4>Badges</h4>
 
       <div className="AchievementsSection">
         <div className="Achievement">10 Days!</div>

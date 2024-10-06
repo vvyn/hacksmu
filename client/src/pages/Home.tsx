@@ -73,11 +73,8 @@ function Home() {
                   mt="lg"
                 />
                 <div className="corg">
-                  <Text className="corgText">Total Breath Count:</Text>
+                  <Text className="corgText">Total Breathe Count:</Text>
                   <Text className="corgText2">15 days</Text>
-                </div>
-                <div className={classes.arrow}>
-                  ➔
                 </div>
               </div>
             </div>

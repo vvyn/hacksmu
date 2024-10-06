@@ -28,7 +28,7 @@ function AddHabit() {
         /> */}
         <div className="mb-4 mx-4 mt-4 rounded-xl py-3 text-white bg-gradient-to-br from-[#5AD7F5] bg-[#1D95F4]">
           <span className='ml-4 text-3xl'>10K</span>
-          <div className='mt-2 mx-4 rounded-xl bg-slate-200'>Daily</div>
+          <div className='mt-2 pl-4 mx-4 rounded-xl bg-slate-200'>Daily</div>
         </div>
       </div>
 
