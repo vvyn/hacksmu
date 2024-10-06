@@ -14,6 +14,7 @@ import Onboarding4 from './components/onboarding/Onboarding4.tsx';
 import Home from './pages/Home.tsx';
 import Test from './pages/test.tsx';
 import AddHabit from './components/AddHabit.tsx';
+import ChallengeProgressPage from './pages/ChallengeProgressPage.tsx';
 
 const home = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ const home = createBrowserRouter([
   {
     path: "/addHabit",
     element: <AddHabit />,
+  },
+  {
+    path: "/challengeProgress",
+    element: <ChallengeProgressPage />,
   }
 ]);
 

@@ -1,28 +1,28 @@
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './Me.css'; // Import the CSS file
+import './Me.css'; 
 
 function Me() {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate('/'); // Navigate back to home page
+    navigate('/home'); 
   };
 
   const handlePoke = (friendName: string) => {
     toast.success(`You poked ${friendName}!`, {
-      position: "top-center", // Move toast to the top center
-      autoClose: 3000, // Notification will auto-close after 3 seconds
+      position: "top-center", 
+      autoClose: 3000, 
     });
   };
 
   return (
     <div className="ProfileContainer">
       <ToastContainer position="top-center" /> {/* ToastContainer at the top */}
-      <button className="BackButton" onClick={handleBack}>← Back</button>
+      <button className="BackButton" onClick={handleBack}>← </button>
       <div className="ProfileHeader">
-        <img className="ProfileImage" src="profile-pic.jpg" alt="Profile" />
+        <img className="ProfileImage" src="/profile.png" alt="Profile" />
         <h2 className="UserName">Jessica</h2>
         <p className="UserHandle">@jessiiii | 3 Following | 3 Followers</p>
       </div>
@@ -49,10 +49,13 @@ function Me() {
         <button className="AddFriendsButton">Add Friends!</button>
       </div>
 
+
+      <h4>Total Activity</h4>
+
       <div className="AchievementsSection">
-        <div className="Achievement">Badge 1</div>
-        <div className="Achievement">Badge 2</div>
-        <div className="Achievement">Badge 3</div>
+        <div className="Achievement">10 Days!</div>
+        <div className="Achievement">30 Days!</div>
+        <div className="Achievement2">15 Challanges!</div>
       </div>
     </div>
   );
