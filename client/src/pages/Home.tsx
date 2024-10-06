@@ -93,7 +93,7 @@ function Home() {
 
         <div className="mx-8 rounded-2xl py-4 mt-4">
           <div onClick={goToChallengeProgress} style={{ cursor: 'pointer' }}>
-            <img className="Challenges" src="/Habit Card.svg" alt="Habit Card" />
+            <img className="" src="/Productive.png" alt="Habit Card" />
           </div>
         </div>
 
