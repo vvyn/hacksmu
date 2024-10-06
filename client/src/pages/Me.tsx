@@ -19,7 +19,7 @@ function Me() {
 
   return (
     <div className="ProfileContainer">
-      <ToastContainer position="top-center" /> 
+      <ToastContainer position="top-center" /> {/* ToastContainer at the top */}
       <button className="BackButton" onClick={handleBack}>← </button>
       <div className="ProfileHeader">
         <img className="ProfileImage" src="/profile.png" alt="Profile" />
