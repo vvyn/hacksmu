@@ -161,5 +161,14 @@ def accept_friend_request():
     return jsonify({"ok": 1})
 
 
+@app.post("/reset")
+def reset_db():
+    # Resets the db to the initial state
+    users.delete_many({"id": { "$ne": "mikey" }})
+    users.update_one({"id": "mikey"}, {"$set": {"friends": []}})
+
+    return jsonify({"ok": 1})
+
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=True)
