@@ -11,7 +11,7 @@ function Breathe() {
     setTimeout(() => {
       setAnimationComplete(true);
       setAnimationMoving(false);
-    }, 30000);
+    }, 300);
   };
 
   const handleContinue = () => {
