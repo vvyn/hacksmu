@@ -1,13 +1,31 @@
 import { Container, Title, Text, Image } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
 import classes from './BreatheHeader.module.css';
+import { useEffect, useState } from 'react';
+import { getCookie } from '../../cookie';
+import { getUser } from '../../api';
 
 export function BreatheHeader() {
   const navigate = useNavigate();
+  const [user, setUser] = useState<any>(null);
 
   const goToBreathePage = () => {
     navigate('/breathe');
   };
+
+  useEffect(() => {
+    async function fetchData() {
+      const username = getCookie("username");
+      const data = await getUser(username);
+      setUser(data);
+    }
+
+    fetchData();
+  });
+
+  if (user === null) {
+    return null;
+  }
 
   return (
     <div className={classes.root}>
@@ -21,7 +39,7 @@ export function BreatheHeader() {
                 inherit
                 c='blue'
               >
-                Jessica
+                {user.name}
               </Text>
             </Text>
             <div className={classes.rectangle}>
