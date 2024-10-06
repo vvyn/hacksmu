@@ -1,27 +1,21 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';  // Assuming you're using React Navigation
-
+import { useNavigation } from '@react-navigation/native'; 
 const BreathingExercise: React.FC = () => {
   const [completed, setCompleted] = useState(false);
   const [breathsCompleted, setBreathsCompleted] = useState(0);
-  const navigation = useNavigation(); // For navigation to the separate page
-
+  const navigation = useNavigation(); 
   const handlePress = () => {
     setCompleted(true);
     setBreathsCompleted(breathsCompleted + 1);
-    // navigation.navigate('Breath');  // This will navigate to a blank page for now
+    // navigation.navigate('Breath'); 
   };
-
   return (
     <TouchableOpacity style={styles.container} onPress={handlePress}>
-      {/* GIF on the left */}
       <Image
-        source={require('../assets/images/breathing.gif')} // Adjust the path to your gif
+        source={require('../assets/images/breathing.gif')}
         style={styles.gif}
       />
-
-      {/* Text and number on the right */}
       <View style={styles.textContainer}>
         <Text style={styles.text}>
           {completed
@@ -33,14 +27,13 @@ const BreathingExercise: React.FC = () => {
     </TouchableOpacity>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f0f0f0',  // Customize background color if needed
+    backgroundColor: '#f0f0f0', 
     padding: 20,
-    borderRadius: 15,  // Rounded corners
+    borderRadius: 15,
     margin: 10,
   },
   gif: {
@@ -50,7 +43,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   textContainer: {
-    flex: 1,  // Allow text to take up remaining space
+    flex: 1, 
   },
   text: {
     fontSize: 16,
@@ -61,5 +54,4 @@ const styles = StyleSheet.create({
     color: '#888',
   },
 });
-
 export default BreathingExercise;
