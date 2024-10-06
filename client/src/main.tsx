@@ -13,6 +13,7 @@ import Onboarding3 from './components/onboarding/Onboarding3.tsx';
 import Onboarding4 from './components/onboarding/Onboarding4.tsx';
 import Home from './pages/Home.tsx';
 import Test from './pages/test.tsx';
+import ChallengeProgressPage from './pages/ChallengeProgressPage.tsx';
 
 const home = createBrowserRouter([
   {
@@ -58,6 +59,9 @@ const home = createBrowserRouter([
   {
     path: "/test",
     element: <Test />,
+  },{
+    path: "/challengeProgress",
+    element: <ChallengeProgressPage />,
   }
 ]);
 
