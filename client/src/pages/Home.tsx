@@ -84,8 +84,8 @@ function Home() {
           <span className="text-lg font-semibold mb-4">Challenges</span>
           <span className="ml-44 font-semibold text-[#E13A50]">View All</span>
         </div>
-        <img className="Challenges" src="/Productive.png" alt="Profile" />
-        <img className="Challenges" src="/Walk.png" alt="Profile" />
+        <img className="Challenges" src="/Productive.svg" alt="Profile" />
+        <img className="Challenges" src="/Walk.svg" alt="Profile" />
         <button className="w-3/4 mx-4 mt-4 rounded-full py-3 text-white bg-gradient-to-br from-[#1D95F4] to-[#5AD7F5]">Add Habit</button>
 
         <div className="mt-4">
