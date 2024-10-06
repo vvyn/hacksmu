@@ -5,7 +5,6 @@ import classes from './BreatheHeader.module.css';
 export function BreatheHeader() {
   const navigate = useNavigate();
 
-  // Function to navigate to the breath page
   const goToBreathPage = () => {
     navigate('/breath');
   };
@@ -15,7 +14,7 @@ export function BreatheHeader() {
       <Container size="md">
         <div className={classes.inner}>
           <div className={classes.content}>
-          <Text className={classes.welcomeText} pb={100}>
+          <Text className={classes.welcomeText}>
               Welcome back, {' '}
               <Text
                 component="span"
@@ -26,7 +25,7 @@ export function BreatheHeader() {
               </Text>
             </Text>
             <div className={classes.rectangle}>
-            <Title className={classes.title}>
+            <Title className={classes.title} pt={150}>
               Take a {' '}
               <Text
                 component="span"
@@ -43,12 +42,14 @@ export function BreatheHeader() {
             <Image
               src="/corgiEarWag.gif"
               alt="Corgi"
-              width={180}  
-              height={180}
+              width={100}  
+              height={100}
               className={classes.corgi}
               mt="lg"
             />
-
+            <div className={classes.arrow}>
+              ➔
+            </div>
             </div>
           </div>
         </div>

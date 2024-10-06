@@ -2,8 +2,7 @@
     background-color: #f0f8ff;
     background-size: cover;
     background-position: center;
-    /* padding-top: calc(var(--mantine-spacing-xl) * 4); */
-    padding-bottom: calc(var(--mantine-spacing-xl) * 4);
+    
   }
   
   .inner {
@@ -15,21 +14,21 @@
   }
   .welcomeText {
     color: #2d2d2d;
-    font-size: 24px;
+    font-size: 32px;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    margin-bottom: var(--mantine-spacing-sm);  /* Add space below the welcome text */
+    margin-bottom: var(--mantine-spacing-md);  
   }
   .rectangle {
     width: 100%;
-    height: calc(90vh);  /* Almost to the bottom of the page */
-    background: linear-gradient(180deg, #62BBF4, #58DBF4);  /* Gradient background */
+    height: 650px; 
+    background: linear-gradient(180deg, #62BBF4, #58DBF4); 
     border-radius: 16px;
-    position: relative;  /* Position relative to allow absolute positioning of the corgi and arrow */
+    position: relative;  
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    margin-top: var(--mantine-spacing-sm);  /* Space between Welcome text and rectangle */
+    margin-top: var(--mantine-spacing-sm);  
   }
   .content {
     padding-top: calc(var(--mantine-spacing-lg) * 2);
@@ -43,7 +42,7 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     line-height: 1.1;
-    font-size: rem(36px);
+    font-size: 42px;
     max-width: rem(600px);
   
     @media (max-width: 768px) {
@@ -69,8 +68,19 @@
   }
   
   .corgi {
-    margin-top: rem(20px);
-    border-radius: 10px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 100px; 
+    height: 100px; 
+  }
+  
+  .arrow {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 32px;
+    color: #fff;
   }
   
   .control {
