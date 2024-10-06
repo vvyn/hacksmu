@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Poppins", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -61,4 +61,31 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+input[type="radio"] {
+  @apply appearance-none w-6 h-6 rounded-full bg-gray-300; /* Default background */
+}
+
+input[type="radio"]:checked {
+  @apply bg-blue-500; /* Background when checked */
+}
+
+input[type="radio"]:checked::after {
+  content: '';
+  @apply block w-3 h-3 mx-auto mt-[6px] rounded-full bg-white;
+}
+
+input[type="checkbox"] {
+  @apply appearance-none w-6 h-6 rounded bg-gray-300; /* Default background */
+}
+
+input[type="checkbox"]:checked {
+  @apply bg-blue-500; /* Background when checked */
+}
+
+input[type="checkbox"]:checked::after {
+  content: '';
+  @apply block w-4 h-4 mx-auto bg-white rounded;
+  clip-path: polygon(14% 44%, 0% 67%, 50% 100%, 100% 15%, 80% 0%, 45% 55%);
 }
