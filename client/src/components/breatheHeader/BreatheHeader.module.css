@@ -1,10 +1,9 @@
 .root {
-    background-color: #62BAF4;
+    background-color: #f0f8ff;
     background-size: cover;
     background-position: center;
-    background-image: linear-gradient(250deg, rgba(130, 201, 30, 0) 0%, #062343 70%);
-    padding-top: calc(var(--mantine-spacing-xl) * 3);
-    padding-bottom: calc(var(--mantine-spacing-xl) * 3);
+    /* padding-top: calc(var(--mantine-spacing-xl) * 4); */
+    padding-bottom: calc(var(--mantine-spacing-xl) * 4);
   }
   
   .inner {
@@ -12,54 +11,77 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  
-    @media (max-width: $mantine-breakpoint-md) {
-      flex-direction: column;
-    }
-  }
-  
-  .content {
-    padding-top: calc(var(--mantine-spacing-xl) * 2);
-    padding-bottom: calc(var(--mantine-spacing-xl) * 2);
     text-align: center;
+  }
+  .welcomeText {
+    color: #2d2d2d;
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: var(--mantine-spacing-sm);  /* Add space below the welcome text */
+  }
+  .rectangle {
+    width: 100%;
+    height: calc(90vh);  /* Almost to the bottom of the page */
+    background: linear-gradient(180deg, #62BBF4, #58DBF4);  /* Gradient background */
+    border-radius: 16px;
+    position: relative;  /* Position relative to allow absolute positioning of the corgi and arrow */
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: var(--mantine-spacing-sm);  /* Space between Welcome text and rectangle */
+  }
+  .content {
+    padding-top: calc(var(--mantine-spacing-lg) * 2);
+    padding-bottom: calc(var(--mantine-spacing-lg) * 2);
+    max-width: 90%;
+    text-align: left;
   }
   
   .title {
-    color: var(--mantine-color-white);
-    font-family: 'Greycliff CF', var(--mantine-font-family);
-    font-weight: 900;
-    line-height: 1.05;
-    max-width: rem(500px);
-    font-size: rem(48px);
+    color: #2d2d2d;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.1;
+    font-size: rem(36px);
+    max-width: rem(600px);
   
-    @media (max-width: $mantine-breakpoint-md) {
-      max-width: 100%;
-      font-size: rem(34px);
-      line-height: 1.15;
+    @media (max-width: 768px) {
+      font-size: rem(28px);
+      line-height: 1.2;
     }
+  }
+  .cursive {
+    font-family: 'Dancing Script', cursive;  
+    font-weight: 500;
   }
   
   .description {
-    color: var(--mantine-color-white);
-    opacity: 0.75;
+    color: #4f4f4f;
+    opacity: 0.85;
+    font-size: rem(18px);
     max-width: rem(500px);
+    margin: 0 auto;
   
-    @media (max-width: $mantine-breakpoint-md) {
-      max-width: 100%;
+    @media (max-width: 768px) {
+      font-size: rem(16px);
     }
   }
   
   .corgi {
     margin-top: rem(20px);
+    border-radius: 10px;
   }
   
   .control {
-    padding-left: rem(50px);
-    padding-right: rem(50px);
-    font-family: 'Greycliff CF', var(--mantine-font-family);
-    font-size: rem(22px);
+    padding-left: rem(40px);
+    padding-right: rem(40px);
+    font-family: 'Poppins', sans-serif;
+    font-size: rem(18px);
+    font-weight: 500;
+    border-radius: 8px;
   
-    @media (max-width: $mantine-breakpoint-md) {
+    @media (max-width: 768px) {
       width: 100%;
     }
   }

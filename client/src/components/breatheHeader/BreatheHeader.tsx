@@ -5,51 +5,51 @@ import classes from './BreatheHeader.module.css';
 export function BreatheHeader() {
   const navigate = useNavigate();
 
+  // Function to navigate to the breath page
   const goToBreathPage = () => {
     navigate('/breath');
   };
 
   return (
     <div className={classes.root}>
-      <Container size="lg">
+      <Container size="md">
         <div className={classes.inner}>
           <div className={classes.content}>
+          <Text className={classes.welcomeText} pb={100}>
+              Welcome back, {' '}
+              <Text
+                component="span"
+                inherit
+                c='blue'
+              >
+                Jessica
+              </Text>
+            </Text>
+            <div className={classes.rectangle}>
             <Title className={classes.title}>
-              Time to{' '}
+              Take a {' '}
               <Text
                 component="span"
                 inherit
                 variant="gradient"
-                gradient={{ from: 'blue', to: 'cyan' }}
+                gradient={{ from: 'cyan', to: 'blue', deg: 90 }}
+                className={classes.cursive} 
               >
-                relax
-              </Text>{' '}
-              and breathe!
+                deep breath
+              </Text>
             </Title>
 
-            <Text className={classes.description} mt={30}>
-              Take a deep breath and start your breathing exercise. This will help you relax and refresh your mind.
-            </Text>
 
             <Image
-              src="client/public/corgiEarWag.gif"  
+              src="/corgiEarWag.gif"
               alt="Corgi"
-              width={200} 
-              height={200}
+              width={180}  
+              height={180}
               className={classes.corgi}
-              mt={20}
+              mt="lg"
             />
 
-            <Button
-              variant="gradient"
-              gradient={{ from: 'blue', to: 'cyan' }}
-              size="xl"
-              className={classes.control}
-              mt={40}
-              onClick={goToBreathPage}
-            >
-              Start Breathing Exercise
-            </Button>
+            </div>
           </div>
         </div>
       </Container>
