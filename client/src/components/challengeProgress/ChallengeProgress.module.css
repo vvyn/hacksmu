@@ -1,0 +1,45 @@
+.container {
+    padding: 20px;
+    justify-content: center;
+    background-color: #f0f8ff;  
+    min-height: 100vh;
+    min-width: 100vw;
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 50px;
+  }
+  
+  .progressRing {
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+    margin: 0 auto;           
+    margin-bottom: 20px;
+  }
+  
+  .subTitle {
+    margin-bottom: 10px;
+  }
+  
+  .mentalHealthLinks {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .inviteButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+  .memberButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;  
+    text-align: left;  /* Align text to the left */
+  }
+  
