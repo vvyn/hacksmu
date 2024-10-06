@@ -10,7 +10,7 @@ export default function Onboarding1() {
   return (
     <div className="h-screen w-screen bg-cover bg-center relative" style={{ backgroundImage: 'url("/onboarding_wave_1.png")' }}>
       <div className="">
-        <div className="text-4xl font-bold pt-56">Name of App</div>
+        <div className="text-5xl pt-56">Name of App</div>
         <div className="text-3xl pt-4">Tagline</div>
         <div className="absolute bottom-0 w-full p-4 pb-16">
           <div>
