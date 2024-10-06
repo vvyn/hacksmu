@@ -2,26 +2,70 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Me.css'; // Import the CSS file
-import { useState } from 'react'; // Import useState
+import { useEffect, useState } from 'react'; // Import useState
+import { getCookie } from '../cookie';
+import { getPokes, getUser, pokeFriend } from '../api';
+import { messaging } from '../firebaseConfig';
+import { onMessage } from 'firebase/messaging';
 
 function Me() {
   const navigate = useNavigate();
   const [isPopupOpen, setIsPopupOpen] = useState(false); // State for managing popup visibility
+  const [user, setUser] = useState<any>(null);
 
   const handleBack = () => {
     navigate('/home');
   };
 
   const handlePoke = (friendName: string) => {
+    const username = getCookie("username");
+    pokeFriend(username, friendName);
     toast.success(`You poked ${friendName}!`, {
       position: "top-center",
       autoClose: 3000,
     });
   };
 
+  useEffect(() => {
+    async function fetchData() {
+      const username = getCookie("username");
+      const data = await getUser(username);
+      setUser(data);
+
+      onMessage(messaging, (payload: any) => {
+        console.log('Message received: ', payload);
+        // ...
+        toast.success(`You were poked by ${payload}!`, {
+          position: "top-center",
+          autoClose: 3000,
+        });
+      });
+    }
+
+    fetchData();
+
+    // Loop every 500 ms to check for new messages
+    const inter = setInterval(async () => {
+      const username = getCookie("username");
+      const data = await getPokes(username);
+      const pokes = data.pokes;
+      if (pokes.length > 0) {
+        console.log("Pokes: ", pokes);
+        toast.success(pokes[0], {
+          position: "top-center",
+          autoClose: 3000,
+        });
+      }
+    }, 500);
+
+    return () => clearInterval(inter);
+  }, []);
+
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen); // Toggle popup visibility
   };
+
+  if (user === null) return;
 
   return (
     <div className="ProfileContainer">
@@ -29,8 +73,8 @@ function Me() {
       <button className="BackButton" onClick={handleBack}>← </button>
       <div className="ProfileHeader">
         <img className="ProfileImage" src="/profile.png" alt="Profile" />
-        <h2 className="UserName">Jessica</h2>
-        <p className="UserHandle">@jessiiii | 3 Following | 3 Followers</p>
+        <h2 className="UserName">{user.name}</h2>
+        <p className="UserHandle">@{user.id} | 3 Following | 3 Followers</p>
       </div>
 
       <div className="ActivitySection">
@@ -42,13 +86,13 @@ function Me() {
 
       <div className="FriendsSection">
         <h4>Friends</h4>
-        <div className='PendF'>
-          Pending Friends <span className="Arrow">→</span>
-        </div>
+        {/* <div className='PendF'> */}
+          {/* Pending Friends <span className="Arrow">→</span> */}
+        {/* </div> */}
         <div className="FriendItem">
-          <span>Bud</span>
+          <span>Michael</span>
           <span>Today</span>
-          <button className="PokeButton" onClick={() => handlePoke('Bud')}>Poke!</button>
+          <button className="PokeButton" onClick={() => handlePoke('mikey')}>Poke!</button>
         </div>
         <div className="FriendItem">
           <span>Buddy</span>
