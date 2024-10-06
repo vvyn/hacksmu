@@ -29,7 +29,7 @@ def create_user():
     fitness_data = pull_fitness_data()
 
     # Save to mongodb
-    users.insert_one({"id": user_id, "name": user_name, "daily": fitness_data["daily"], "steps": fitness_data["steps"], "friends": [], "requests": []})
+    users.insert_one({"id": user_id, "name": user_name, "daily": fitness_data["daily"], "steps": fitness_data["steps"], "friends": [], "requests": [], "token": ""})
 
     return jsonify({"ok": 1})
 
@@ -83,7 +83,7 @@ def get_user(id):
     # Get user by id
     user = users.find_one({"id": id})
 
-    return jsonify({"id": user["id"], "name": user["name"], "daily": user["daily"], "steps": user["steps"], "friends": user["friends"], "requests": user["requests"]})
+    return jsonify({"id": user["id"], "name": user["name"], "daily": user["daily"], "steps": user["steps"], "friends": user["friends"], "requests": user["requests"], "token": user["token"]})
 
 
 @app.post("/daily")
@@ -166,6 +166,18 @@ def reset_db():
     # Resets the db to the initial state
     users.delete_many({"id": { "$ne": "mikey" }})
     users.update_one({"id": "mikey"}, {"$set": {"friends": []}})
+
+    return jsonify({"ok": 1})
+
+
+@app.post("/token")
+def set_user_token():
+    # Get the token from the request
+    data = request.json
+    id = data["id"]
+    token = data["token"]
+
+    users.update_one({"id": id}, {"$set": {"token": token}})    
 
     return jsonify({"ok": 1})
 
