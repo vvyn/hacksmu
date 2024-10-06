@@ -1,6 +1,7 @@
-import { Container, Image, Text, Title } from "@mantine/core";
+import { Container, Image, Text } from "@mantine/core";
 import { MantineProvider } from '@mantine/core';
 import classes from './Home.module.css';
+import './Home.css';
 import { useEffect, useState } from "react";
 import { getUser } from "../api";
 import { getCookie } from "../cookie";
@@ -28,8 +29,12 @@ function Home() {
     navigate('/addHabit');
   };
 
+  const goToChallengeProgress = () => {
+    navigate('/ChallengeProgress'); // Navigate to ChallengeProgress page
+  };
+
   if (user === null) {
-    return
+    return null; // Ensure this returns null instead of undefined
   }
 
   return (
@@ -58,8 +63,7 @@ function Home() {
               <div className="text-xl text-[#877B8C] font-poppins">
                 Congrats on completing your daily check in
               </div>
-              <div className={classes.rectangle + " p-0"}>
-
+              <div className={classes.rectangle + " p-0"} >
                 <Image
                   src="/corgiEarWag.gif"
                   alt="Corgi"
@@ -68,6 +72,10 @@ function Home() {
                   className={classes.corgi}
                   mt="lg"
                 />
+                <div className="corg">
+                  <Text className="corgText">Total Breath Count:</Text>
+                  <Text className="corgText2">15 days</Text>
+                </div>
                 <div className={classes.arrow}>
                   ➔
                 </div>
@@ -76,21 +84,27 @@ function Home() {
           </div>
         </Container>
       </MantineProvider>
-      <div className="">
-        <div className="">
+
+      <div>
+        <div>
           <span className="text-lg font-semibold mb-4">Current Challenges</span>
           <span className="ml-28 font-semibold text-[#E13A50]">View All</span>
         </div>
-        <div className="border border-2 mx-8 rounded-2xl py-4 mt-4">
-          <div>Drink Water</div>
+
+        <div className="mx-8 rounded-2xl py-4 mt-4">
+          <div onClick={goToChallengeProgress} style={{ cursor: 'pointer' }}>
+            <img className="Challenges" src="/Habit Card.svg" alt="Habit Card" />
+          </div>
         </div>
+
         <div className="pt-4">
           <span className="text-lg font-semibold mb-4">Challenges</span>
           <span className="ml-44 font-semibold text-[#E13A50]">View All</span>
         </div>
         <div className="px-8 py-4">
-          <img className="Challenges" src="/Productive.png" alt="Profile" />
-          <img className="Challenges" src="/Walk.png" alt="Profile" />
+          <img className="productive" src="/Productive.svg" alt="Productive" />
+          <br />
+          <img className="walk" src="/Walk.svg" alt="Walk" />
         </div>
         <button onClick={goToAddHabit} className="w-3/4 mx-4 mt-4 rounded-full py-3 text-white bg-gradient-to-br from-[#1D95F4] to-[#5AD7F5]">
           Add Habit
@@ -113,7 +127,6 @@ function Home() {
             </div>
           </div>
         </div>
-
       </div>
     </>
   );

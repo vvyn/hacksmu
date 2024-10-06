@@ -1,18 +1,25 @@
 import { RingProgress, Table, Text, Button, Center } from '@mantine/core';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import classes from './ChallengeProgress.module.css';
 
 export function ChallengeProgress() {
+  const navigate = useNavigate(); // Initialize navigate function
+
+  const handleBack = () => {
+    navigate(-1); // Go back to the previous page
+  };
+
   return (
     <div className={classes.container}>
+      <button className="BackButton" onClick={handleBack}>← </button>
 
       <Text className={classes.title} size="xl" fw={800} c={'blue'}>
         Walk 10k Steps
       </Text>
 
-
       <RingProgress
-      ta={Center}
-        sections={[{ value: (3000 / 10000) * 100, color: '#2098F5' }]}  
+        ta={Center}
+        sections={[{ value: (3000 / 10000) * 100, color: '#2098F5' }]}
         label={
           <Text size="lg" ta="center" c={'cyan'} fw={700}>
             3/10k
@@ -30,14 +37,18 @@ export function ChallengeProgress() {
       <Table highlightOnHover>
         <tbody>
           <tr>
-          <Button variant="outline" size="xs" leftSection={<span>⚫</span>} className={classes.memberButton}>
+            <td>
+              <Button variant="outline" size="xs" leftSection={<span>⚫</span>} className={classes.memberButton}>
                 Me
               </Button>
+            </td>
           </tr>
           <tr>
-          <Button variant="outline" size="xs" leftSection={<span>⚫</span>} className={classes.memberButton}>
+            <td>
+              <Button variant="outline" size="xs" leftSection={<span>⚫</span>} className={classes.memberButton}>
                 You
               </Button>
+            </td>
           </tr>
           <tr>
             <td>
