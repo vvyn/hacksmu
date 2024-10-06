@@ -8,7 +8,7 @@ export default function Onboarding3() {
   };
 
   return (
-    <>
+    <div className="h-screen w-screen bg-cover bg-center relative" style={{ backgroundImage: 'url("/onboarding_wave_2.png")' }}>
       <div className="bg-[#EFF5F6] pb-40">
         <img src="/onboarding_wave_3.png" alt="wave" />
       </div>
@@ -24,7 +24,7 @@ export default function Onboarding3() {
           Create
         </button>
       </div>
-    </>
+    </div>
   )
 }
   
