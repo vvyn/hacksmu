@@ -1,0 +1,115 @@
+/* Me.css */
+
+.ProfileContainer {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: #ffffff;
+    /* White background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.BackButton {
+    background: transparent;
+    border: none;
+    color: #007BFF;
+    /* Blue text for back button */
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.ProfileHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.ProfileImage {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #007BFF;
+}
+
+.UserName {
+    color: #555;
+    /* Grey text for user name */
+    margin: 10px 0 5px;
+}
+
+.UserHandle {
+    color: #888;
+    /* Grey text for user handle */
+    margin: 0;
+}
+
+.ActivitySection {
+    color: #877B8C;
+    margin: 10px 0;
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.ActivityText {
+    color: #555;
+    /* Grey text for activity section */
+}
+
+.FriendsSection {
+    color: #877B8C;
+    margin: 10px 0;
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.FriendItem {
+    color: #877B8C;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.PokeButton {
+    background: transparent;
+    border: none;
+    color: #007BFF;
+    /* Blue text for Poke button */
+    cursor: pointer;
+}
+
+.AchievementsSection {
+    color: #877B8C;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.Achievement {
+    background: linear-gradient(90deg, #62BBF4, #58DBF4);
+    color: #877B8C;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+    margin: 0 5px;
+}
+
+.AddFriendsButton {
+    color: #007BFF;
+    /* Blue text for Add Friends button */
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.Notification {
+    color: #28a745;
+    /* Green color for notifications */
+    margin: 10px 0;
+    font-weight: bold;
+}

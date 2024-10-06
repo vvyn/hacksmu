@@ -18,17 +18,19 @@ export default function Onboarding2() {
   };
 
   return (
-    <div className="h-screen w-screen bg-cover bg-center relative" style={{ backgroundImage: 'url("/onboarding_wave_2.png")' }}>
-      <div className="absolute bottom-0 w-full p-4 pb-16">
-        <div className="text-[#1D95F4] text-xl">Account Setup</div>
-        <div>
-          <input type="text" placeholder="Your Name" className="w-3/4 border-b-2 border-[#F66C65]" onChange={(e) => setName(e.target.value)}/>
+    <div className="h-screen w-screen bg-cover bg-center relative font-poppins" style={{ backgroundImage: 'url("/onboarding_wave_2.png")' }}>
+      <div className="absolute bottom-20 w-full pb-16 flex flex-col items-center">
+        <div className="text-[#1D95F4] text-xl mb-4 font-bold">Account Setup</div>
+        <div className="mb-4 border-[#F66C65] border-2 rounded-md w-fit">
+          <div className="w-fit">
+            <input type="text" placeholder="Your Name" className="w-3/4 py-2 border-b border-[#F66C65] outline-none" onChange={(e) => setName(e.target.value)}/>
+          </div>
+          <div className="w-fit">
+            <input type="text" placeholder="Username" className="w-3/4 py-2 outline-none" onChange={(e) => setUsername(e.target.value)}/>
+          </div>
         </div>
-        <div className="mb-4">
-          <input type="text" placeholder="Username" className="w-3/4 border-b-2 border-[#F66C65]" onChange={(e) => setUsername(e.target.value)}/>
-        </div>
         <div>
-          <button onClick={handleCreate} className="w-3/4 rounded-full text-white bg-gradient-to-r from-[#F66C65] to-[#E13A50]">
+          <button onClick={handleCreate} className="rounded-full text-white bg-gradient-to-r px-24 from-[#F66C65] to-[#E13A50]">
             Create
           </button>
         </div>
