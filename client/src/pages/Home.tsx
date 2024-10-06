@@ -38,6 +38,9 @@ function Home() {
                 {user.name}
               </Text>
             </Text>
+            <div className="text-xl">
+              Congrats on completing you daily breath check in
+            </div>
             <div className={classes.rectangle}>
             <Title className={classes.title} pt={150}>
               Total Daily Check-ins: 
@@ -67,6 +70,47 @@ function Home() {
         </div>
       </Container>
     </MantineProvider>
+    <div className="">
+      <div className="">
+        <span className="text-lg font-semibold mb-4">Current Challenges</span>
+        <span className="ml-28 font-semibold text-[#E13A50]">View All</span>
+      </div>
+      <div className="border border-2 mx-8 rounded-2xl py-4 mt-4">
+        <div>Drink Water</div>
+      </div>
+      <div className="">
+        <span className="text-lg font-semibold mb-4">Challenges</span>
+        <span className="ml-44 font-semibold text-[#E13A50]">View All</span>
+      </div>
+        <div className="border border-2 mx-8 py-6 rounded-2xl mt-4">
+          <div>Walk 10k</div>
+          <button className="w-3/4 mx-4 mt-4 rounded-full py-3 text-white bg-[#5AD7F5]">Join</button>
+        </div>
+        <div className="border border-2 mx-8 py-6 rounded-2xl mt-4">
+          <div>Be Productive for 1 hour</div>
+          <button className="w-3/4 mx-4 mt-4 rounded-full py-3 text-white bg-[#5AD7F5]">Join</button>
+        </div>
+      <button className="w-3/4 mx-4 mt-4 rounded-full py-3 text-white bg-gradient-to-br from-[#1D95F4] to-[#5AD7F5]">Add Habit</button>
+
+      <div className="mt-4">
+          <div className="text-lg font-semibold mb-4">Resources</div>
+          <div className="flex m-2">
+            <div className="w-1/3 m-1 rounded-xl p-2 bg-gradient-to-br from-[#F15469] to-[#F57069]">
+              <div className="text-white text-lg">Looking for help?</div>
+              <div className="m-2 bg-white text-[#F15469] text-sm">Go to DMU health portal</div>
+            </div>
+            <div className="w-1/3 m-1 rounded-xl p-2 bg-gradient-to-br from-[#F15469] to-[#F57069]">
+              <div className="text-white text-lg">Free STI Testing</div>
+              <div><a href="#" className="m-2 bg-white text-[#F15469] text-sm">Register Here</a></div>
+            </div>
+            <div className="w-1/3 m-1 rounded-xl p-2 bg-gradient-to-br from-[#F15469] to-[#F57069]">
+              <div className="text-white text-lg">Looking for help?</div>
+              <div className="m-2 bg-white text-[#F15469] text-sm">Go to DMU health portal</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </>
   );
 }
