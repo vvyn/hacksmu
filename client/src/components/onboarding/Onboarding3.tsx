@@ -10,7 +10,7 @@ export default function Onboarding3() {
   return (
     <>
       <div className="bg-[#EFF5F6] pb-40">
-        <img src="/onboarding_wave.png" alt="wave" />
+        <img src="/onboarding_wave_3.png" alt="wave" />
       </div>
       <div className="text-[#1D95F4] text-xl">Personal Information (optional)</div>
       <div>

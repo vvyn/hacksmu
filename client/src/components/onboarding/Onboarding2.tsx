@@ -10,7 +10,7 @@ export default function Onboarding2() {
   return (
     <>
       <div className="pb-20 bg-[#EFF5F6] ">
-        <img src="/onboarding_wave.png" alt="wave" />
+        <img src="/onboarding_wave_2.png" alt="wave" />
       </div>
       <div className="text-[#1D95F4] text-xl">Account Setup</div>
       <div>
