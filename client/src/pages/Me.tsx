@@ -1,25 +1,25 @@
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './Me.css'; // Import the CSS file
+import './Me.css'; 
 
 function Me() {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate('/home'); // Navigate back to home page
+    navigate('/home'); 
   };
 
   const handlePoke = (friendName: string) => {
     toast.success(`You poked ${friendName}!`, {
-      position: "top-center", // Move toast to the top center
-      autoClose: 3000, // Notification will auto-close after 3 seconds
+      position: "top-center", 
+      autoClose: 3000, 
     });
   };
 
   return (
     <div className="ProfileContainer">
-      <ToastContainer position="top-center" /> {/* ToastContainer at the top */}
+      <ToastContainer position="top-center" /> 
       <button className="BackButton" onClick={handleBack}>← </button>
       <div className="ProfileHeader">
         <img className="ProfileImage" src="/profile.png" alt="Profile" />
