@@ -114,16 +114,28 @@ function Home() {
           <div className="text-lg font-semibold mb-4">Resources</div>
           <div className="flex m-2">
             <div className="w-1/3 m-1 rounded-xl p-2 bg-gradient-to-br from-[#F15469] to-[#F57069]">
-              <div className="text-white text-lg">Looking for help?</div>
-              <div className="m-2 bg-white text-[#F15469] text-sm">Go to DMU health portal</div>
+              <div className="text-white text-lg">Looking for counseling services?</div>
+              <div className="rounded-lg px-2 m-2 bg-white text-[#F15469] text-sm">
+                <a href="https://www.smu.edu/studentaffairs/drbobsmithhealthcenter/counseling-services/mentalhealthapps/smu-teletherapy">
+                Go to DMU health portal
+                </a>
+              </div>
             </div>
             <div className="w-1/3 m-1 rounded-xl p-2 bg-gradient-to-br from-[#F15469] to-[#F57069]">
-              <div className="text-white text-lg">Free STI Testing</div>
-              <div><a href="#" className="m-2 bg-white text-[#F15469] text-sm">Register Here</a></div>
+              <div className="text-white text-lg mb-6">Primary Care Services</div>
+              <div className="rounded-lg px-2 m-2 bg-white text-[#F15469] text-sm">
+                <a href="https://www.smu.edu/studentaffairs/drbobsmithhealthcenter/medical-services">
+                  More information here
+                </a>
+              </div>
             </div>
             <div className="w-1/3 m-1 rounded-xl p-2 bg-gradient-to-br from-[#F15469] to-[#F57069]">
-              <div className="text-white text-lg">Looking for help?</div>
-              <div className="m-2 bg-white text-[#F15469] text-sm">Go to DMU health portal</div>
+              <div className="text-white text-lg">Looking for fitness services?</div>
+              <div className="rounded-lg px-2 m-2 bg-white text-[#F15469] text-sm">
+                <a href="https://www.smu.edu/studentaffairs/campusrecreation/programs/fitness">
+                  Go to DMU health portal
+                </a>
+              </div>
             </div>
           </div>
         </div>

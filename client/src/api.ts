@@ -118,3 +118,42 @@ export async function setToken(username: string, token: string) {
 
     return res.json();
 }
+
+export async function pokeFriend(username: string, friend: string) {
+    const res = await fetch(`${API_ENDPOINT}/poke`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            id: username,
+            friend_id: friend,
+        }),
+    });
+
+    if (!res.ok) {
+        console.error(await res.json());
+        throw new Error("Failed to poke friend");
+    }
+
+    return res.json();
+}
+
+export async function getPokes(username: string) {
+    const res = await fetch(`${API_ENDPOINT}/poke/check`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            id: username,
+        }),
+    });
+
+    if (!res.ok) {
+        console.error(await res.json());
+        throw new Error("Failed to get pokes");
+    }
+
+    return res.json();
+}

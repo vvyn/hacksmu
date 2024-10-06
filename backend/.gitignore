@@ -2,3 +2,4 @@ venv
 .env
 .terraform
 creds.sh
+serviceAccount.json
