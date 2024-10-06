@@ -1,46 +1,58 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
-export default function BreatheComponent() {
-    return (
-        <View style={styles.bg}>
-            <View style={styles.circle} />
-            <Text style={styles.text}>The beginning is always today</Text>
-            <Text style={styles.btn}>breathe</Text>
-        </View>
-    );
-};
+export default function TabTwoScreen() {
+  return (
+    <LinearGradient
+      colors={['#62BAF4', '#56DDF4']}
+      style={styles.bg}
+    >
+      <View style={styles.circle} />
+      <Text style={styles.text}>breathe</Text>
+      <Text style={styles.quote}>quote</Text>
+      <View style={styles.btn}>
+        <Text style={styles.btnText}>btn</Text>
+      </View>
+    </LinearGradient>
+  );
+}
 
 const styles = StyleSheet.create({
   bg: {
-    backgroundColor: '#62BAF4',
-    padding: 20,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 160,
   },
   circle: {
     width: 200,
-    height: 200, 
+    height: 200,
     borderRadius: 100,
     backgroundColor: 'white',
     marginBottom: 20,
   },
   text: {
     color: 'white',
+    fontSize: 40,
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  quote: {
+    color: 'black',
     fontSize: 30,
     textAlign: 'center',
-    marginBottom: 30,
-    paddingHorizontal: 20,
+    marginBottom: 20,
   },
   btn: {
     backgroundColor: 'white',
     width: 150,
-    height: 50, 
-    borderRadius: 25,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  btnText: {
     fontSize: 25,
-    textAlign: 'center',
-    paddingVertical: 5,
     color: 'black',
   },
 });
