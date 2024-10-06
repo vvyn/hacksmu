@@ -15,7 +15,7 @@ function Breathe() {
   };
 
   const handleContinue = () => {
-    navigate('/');
+    navigate('/home');
   };
 
   return (

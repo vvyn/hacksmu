@@ -5,13 +5,13 @@ import classes from './BreatheHeader.module.css';
 export function BreatheHeader() {
   const navigate = useNavigate();
 
-  const goToBreathPage = () => {
-    navigate('/breath');
+  const goToBreathePage = () => {
+    navigate('/breathe');
   };
 
   return (
     <div className={classes.root}>
-      <Container size="md">
+      <Container size="md" onClick={goToBreathePage}>
         <div className={classes.inner}>
           <div className={classes.content}>
           <Text className={classes.welcomeText}>
