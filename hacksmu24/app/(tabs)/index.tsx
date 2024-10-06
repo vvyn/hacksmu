@@ -1,70 +1,80 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import BreatheComponent from '@/components/Breathe';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+export default function TabTwoScreen() {
+  const [showBreathe, setShowBreathe] = useState(false);
 
-export default function HomeScreen() {
-  return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+  const handleBoxClick = () => {
+    setShowBreathe(true);
+  };
+
+    return (
+    <View style={styles.bg}>
+      {showBreathe ? (
+        <BreatheComponent />
+      ) : (
+        <View style={styles.pageContainer}>
+          <View style={styles.box} onTouchEnd={handleBoxClick}>
+            <Text style={styles.boxText}>Breathe</Text>
+          </View>
+          <View style={styles.header}>
+            <Text style={styles.text}>Challenges</Text>
+          </View>
+          <View style={styles.boxContainer}>
+            <View style={styles.box}>
+              <Text style={styles.boxText}>Walk 3 miles</Text>
+            </View>
+            <View style={styles.box}>
+              <Text style={styles.boxText}>Walk 1 mile with a friend</Text>
+            </View>
+          </View>
+        </View>
+      )}
+    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
+  bg: {
+    backgroundColor: '#62BAF4',
+    height: '100%',
+    justifyContent: 'flex-start',
     alignItems: 'center',
-    gap: 8,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  pageContainer : {
+    padding: 20,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  text: {
+    color: 'black',
+    fontSize: 30,
+    fontWeight: 'bold',
+    textAlign: 'left',
+    paddingLeft: 10,
+    marginTop: 20,
+  },
+  header: {
+    alignSelf: 'flex-start',
+    marginBottom: 20,
+  },
+  box: {
+    backgroundColor: 'white',
+    width: 170,
+    height: 140, 
+    borderRadius: 10,
+    fontSize: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginHorizontal: 10,
+  },
+  boxText: {
+    fontSize: 25,
+    color: 'black',
+    textAlign: 'center',
+  },
+  boxContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 10,
   },
 });
