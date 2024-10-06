@@ -4,9 +4,11 @@ import classes from './Home.module.css';
 import { useEffect, useState } from "react";
 import { getUser } from "../api";
 import { getCookie } from "../cookie";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [user, setUser] = useState<any>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
@@ -18,6 +20,10 @@ function Home() {
     fetchData();
   }, []);
 
+  const goToProfile = () => {
+    navigate('/me');
+  };
+
   if (user === null) {
     return
   }
@@ -25,35 +31,31 @@ function Home() {
   return (
     <>
     <MantineProvider>
-      <Container size="md">
+      <Container size="md" className="font-poppins">
         <div className={classes.inner}>
           <div className={classes.content}>
-          <Text className={classes.welcomeText}>
-              Welcome back, {' '}
-              <Text
-                component="span"
-                inherit
-                c='blue'
-              >
-                {user.name}
-              </Text>
-            </Text>
-            <div className="text-xl">
-              Congrats on completing you daily breath check in
+            <div className="flex flex-row">
+              <Text className={classes.welcomeText + " font-poppins"}>
+                  Welcome back, {' '}
+                  <Text
+                    component="span"
+                    inherit
+                    c='blue'
+                  >
+                    {user.name}!
+                  </Text>
+                </Text>
+                <div>
+                  <button onClick={goToProfile} className="w-[50px] h-[50px] p-0 bg-transparent">
+                    <img src="profile.png" alt="Profile" className={classes.profile} width={50} height={50} />
+                  </button>
+                </div>
             </div>
-            <div className={classes.rectangle}>
-            <Title className={classes.title} pt={150}>
-              Total Daily Check-ins: 
-              <Text
-                component="span"
-                inherit
-                variant="gradient"
-                gradient={{ from: 'cyan', to: 'blue', deg: 90 }}
-                className={classes.cursive} 
-              >
-                {user.daily.length}
-              </Text>
-            </Title>
+            <div className="text-xl text-[#877B8C] font-poppins">
+              Congrats on completing your daily check in
+            </div>
+            <div className={classes.rectangle + " p-0"}>
+
             <Image
               src="/corgiEarWag.gif"
               alt="Corgi"

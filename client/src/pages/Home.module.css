@@ -27,7 +27,6 @@
     position: relative;  
     display: flex;
     justify-content: space-between;
-    padding: 20px;
     margin-top: var(--mantine-spacing-sm);  
   }
   .content {
