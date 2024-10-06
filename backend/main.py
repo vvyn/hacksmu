@@ -3,6 +3,9 @@ from flask_cors import CORS
 from pymongo import MongoClient
 from dotenv import load_dotenv
 from datetime import datetime
+from firebase_admin import credentials
+import firebase_admin
+from firebase_admin import messaging
 import os
 
 load_dotenv()
@@ -13,6 +16,9 @@ client = MongoClient(os.getenv("MONGODB_URI"), 27017)
 
 db = client.flask_db
 users = db.users
+
+cred = credentials.Certificate("serviceAccount.json")
+firebase_admin.initialize_app(cred)
 
 @app.route("/")
 def hello():
@@ -29,7 +35,7 @@ def create_user():
     fitness_data = pull_fitness_data()
 
     # Save to mongodb
-    users.insert_one({"id": user_id, "name": user_name, "daily": fitness_data["daily"], "steps": fitness_data["steps"], "friends": [], "requests": [], "token": ""})
+    users.insert_one({"id": user_id, "name": user_name, "daily": fitness_data["daily"], "steps": fitness_data["steps"], "friends": [], "requests": [], "token": "", "pokes": []})
 
     return jsonify({"ok": 1})
 
@@ -164,8 +170,7 @@ def accept_friend_request():
 @app.post("/reset")
 def reset_db():
     # Resets the db to the initial state
-    users.delete_many({"id": { "$ne": "mikey" }})
-    users.update_one({"id": "mikey"}, {"$set": {"friends": []}})
+    users.delete_many({})
 
     return jsonify({"ok": 1})
 
@@ -180,6 +185,52 @@ def set_user_token():
     users.update_one({"id": id}, {"$set": {"token": token}})    
 
     return jsonify({"ok": 1})
+
+
+@app.post("/poke")
+def poke_friend():
+    data = request.json
+    id = data["id"]
+    friend_id = data["friend_id"]
+
+    # Get the friend by ID
+    you = users.find_one({"id": id})
+
+    # Add poke to friend's poke array
+    name = you["name"]
+    users.update_one({"id": friend_id}, {"$push": {"pokes": f'You have been poked by {name}!'}})
+
+    # Send poke
+    # fname = you["name"]
+    # message = messaging.Message(
+    #     data={
+    #         'message': f'{fname} poked you!',
+    #     },
+    #     token=friend['token'],
+    # )
+
+    # # Send a message to the device corresponding to the provided
+    # # registration token.
+    # response = messaging.send(message)
+
+    # Response is a message ID string.
+    # print('Successfully sent message:', response)
+
+    return jsonify({"ok": 1})
+
+
+@app.post("/poke/check")
+def check_pokes():
+    data = request.json
+    id = data["id"]
+
+    # Get the user by ID
+    user = users.find_one({"id": id})
+    pokes = user["pokes"]
+    if len(pokes) != 0:
+        users.update_one({"id": id}, {"$set": {"pokes": []}})
+
+    return jsonify({"pokes": pokes})
 
 
 if __name__ == '__main__':
