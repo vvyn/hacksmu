@@ -10,12 +10,16 @@
   color-scheme: light dark;
 
   color: #213547;
-  background-color: #ffffff;
+  background-color: #EFF5F6;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+input {
+  background-color: #EFF5F6;
 }
 
 a {
