@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import BreatheComponent from '@/components/Breathe';
+import ScoreCounter from '@/components/ScoreCounter';
 
 export default function TabTwoScreen() {
   const [showBreathe, setShowBreathe] = useState(false);
@@ -15,8 +16,11 @@ export default function TabTwoScreen() {
         <BreatheComponent />
       ) : (
         <View style={styles.pageContainer}>
-          <View style={styles.box} onTouchEnd={handleBoxClick}>
-            <Text style={styles.boxText}>Breathe</Text>
+          <ScoreCounter score={10} backgroundColor="#F0E68C"/>
+          <View style={styles.topBox}>
+            <View style={styles.box} onTouchEnd={handleBoxClick}>
+              <Text style={styles.boxText}>Breathe</Text>
+            </View>
           </View>
           <View style={styles.header}>
             <Text style={styles.text}>Challenges</Text>
@@ -77,4 +81,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 10,
   },
+  topBox: {
+    marginTop: 100,
+  }
 });
