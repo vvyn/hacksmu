@@ -1,13 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import BackHeader from './navigation/BackHeader'; 
 
 export default function BreatheComponent() {
     return (
-        <View style={styles.bg}>
-            <View style={styles.circle} />
-            <Text style={styles.text}>The beginning is always today</Text>
-            <Text style={styles.btn}>breathe</Text>
-        </View>
+        <>
+            <BackHeader title="Breathe" />
+            <View style={styles.bg}>
+                <View style={styles.circle} />
+                <Text style={styles.text}>The beginning is always today</Text>
+                <Text style={styles.btn}>breathe</Text>
+            </View>
+        </>
     );
 };
 
@@ -17,7 +21,7 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 160,
+    marginTop: 120,
   },
   circle: {
     width: 200,
