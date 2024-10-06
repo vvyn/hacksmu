@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
 import BreatheComponent from '@/components/Breathe';
 import ScoreCounter from '@/components/ScoreCounter';
 import BreathingExercise from '@/components/BreathingExercise';
@@ -19,9 +19,9 @@ export default function TabTwoScreen() {
         <View style={styles.pageContainer}>
           <ScoreCounter score={10} backgroundColor="#F0E68C"/>
           <View style={styles.topBox}>
-            <View style={styles.longBox} onTouchEnd={handleBoxClick}>
+            <Pressable style={styles.longBox} onPress={handleBoxClick}>
               <BreathingExercise />
-            </View>
+            </Pressable>
           </View>
           <View style={styles.header}>
             <Text style={styles.text}>Challenges</Text>

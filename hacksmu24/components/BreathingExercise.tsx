@@ -10,7 +10,7 @@ const BreathingExercise: React.FC = () => {
     setBreathsCompleted(breathsCompleted + 1);
   };
   return (
-    <TouchableOpacity style={styles.container} onPress={handlePress}>
+    <TouchableOpacity style={styles.container}>
       <Image
         source={require('../assets/images/corgiEarWag.gif')}
         style={styles.gif}
