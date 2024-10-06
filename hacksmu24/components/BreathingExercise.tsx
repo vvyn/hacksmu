@@ -8,12 +8,11 @@ const BreathingExercise: React.FC = () => {
   const handlePress = () => {
     setCompleted(true);
     setBreathsCompleted(breathsCompleted + 1);
-    // navigation.navigate('Breath'); 
   };
   return (
     <TouchableOpacity style={styles.container} onPress={handlePress}>
       <Image
-        source={require('../assets/images/breathing.gif')}
+        source={require('../assets/images/corgiEarWag.gif')}
         style={styles.gif}
       />
       <View style={styles.textContainer}>
@@ -32,13 +31,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#f0f0f0', 
-    padding: 20,
+    padding: 15,
     borderRadius: 15,
-    margin: 10,
+    margin: 5,
   },
   gif: {
-    width: 50,
-    height: 50,
+    width: 120,
+    height: 120,
     marginRight: 15,
     resizeMode: 'contain',
   },
