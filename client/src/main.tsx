@@ -12,6 +12,7 @@ import Onboarding2 from './components/onboarding/Onboarding2.tsx';
 import Onboarding3 from './components/onboarding/Onboarding3.tsx';
 import Onboarding4 from './components/onboarding/Onboarding4.tsx';
 import Home from './pages/Home.tsx';
+import Test from './pages/test.tsx';
 
 const home = createBrowserRouter([
   {
@@ -50,6 +51,14 @@ const home = createBrowserRouter([
     path: "/resources",
     element: <Resources />,
   },
+  {
+    path: "/breathe",
+    element: <Breathe />,
+  },
+  {
+    path: "/test",
+    element: <Test />,
+  }
 ]);
 
 createRoot(document.getElementById('root')!).render(
