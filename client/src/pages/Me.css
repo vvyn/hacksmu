@@ -1,23 +1,39 @@
 /* Me.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Include padding and border in element's total width and height */
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    /* Prevent scrolling */
+}
 
 .ProfileContainer {
-    max-width: 400px;
-    margin: auto;
+    width: 100%;
+    height: 100vh;
+    /* Set height to cover the full viewport */
     padding: 20px;
-    border-radius: 10px;
+    /* Inner padding can be adjusted as needed */
     background: #ffffff;
-    /* White background */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 .BackButton {
     background: transparent;
     border: none;
     color: #007BFF;
-    /* Blue text for back button */
     cursor: pointer;
-    margin-bottom: 20px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
     font-size: 16px;
+    z-index: 1;
 }
 
 .ProfileHeader {
@@ -36,13 +52,11 @@
 
 .UserName {
     color: #555;
-    /* Grey text for user name */
     margin: 10px 0 5px;
 }
 
 .UserHandle {
     color: #888;
-    /* Grey text for user handle */
     margin: 0;
 }
 
@@ -55,7 +69,8 @@
 
 .ActivityText {
     color: #555;
-    /* Grey text for activity section */
+    font-size: 16px;
+    margin: 4px 0;
 }
 
 .FriendsSection {
@@ -76,8 +91,7 @@
 .PokeButton {
     background: transparent;
     border: none;
-    color: #007BFF;
-    /* Blue text for Poke button */
+    color: #E13A50;
     cursor: pointer;
 }
 
@@ -90,26 +104,48 @@
 
 .Achievement {
     background: linear-gradient(90deg, #62BBF4, #58DBF4);
-    color: #877B8C;
+    color: white;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 50%;
     text-align: center;
     flex: 1;
     margin: 0 5px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.Achievement2 {
+    background: linear-gradient(90deg, #F2566A, #F56F6A);
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    text-align: center;
+    flex: 1;
+    margin: 0 5px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+}
+
 
 .AddFriendsButton {
     color: #007BFF;
-    /* Blue text for Add Friends button */
-    border: none;
     background: none;
     cursor: pointer;
     margin-top: 10px;
+    border: 1px solid #007BFF;
+    border-radius: 30px;
+    padding: 5px 10px;
 }
 
 .Notification {
-    color: #28a745;
-    /* Green color for notifications */
+    color: #E13A50;
     margin: 10px 0;
     font-weight: bold;
 }
