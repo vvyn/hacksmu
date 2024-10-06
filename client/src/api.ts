@@ -1,5 +1,5 @@
-// const API_ENDPOINT = "https://hacksmu.mikz.dev";
-const API_ENDPOINT = "http://localhost:8000";
+const API_ENDPOINT = "https://hacksmu.mikz.dev";
+// const API_ENDPOINT = "http://localhost:8000";
 
 export async function newUser(username: string, name: string) {
     const res = await fetch(`${API_ENDPOINT}/user`, {
