@@ -10,11 +10,38 @@ import Resources from './pages/Resources.tsx';
 import Onboarding1 from './components/onboarding/Onboarding1.tsx';
 import Onboarding2 from './components/onboarding/Onboarding2.tsx';
 import Onboarding3 from './components/onboarding/Onboarding3.tsx';
+import Onboarding4 from './components/onboarding/Onboarding4.tsx';
+import Home from './pages/Home.tsx';
+import Test from './pages/test.tsx';
 
 const home = createBrowserRouter([
   {
     path: "/",
+    element: <Onboarding1 />,
+  },
+  {
+    path: "/onboarding/2",
+    element: <Onboarding2 />,
+  },
+  {
+    path: "/onboarding/3",
+    element: <Onboarding3 />,
+  },
+  {
+    path: "/onboarding/4",
+    element: <Onboarding4 />,
+  },
+  {
+    path: "/breatheIntro",
     element: <App />,
+  },
+  {
+    path: "/breathe",
+    element: <Breathe />,
+  },
+  {
+    path: "/home",
+    element: <Home />,
   },
   {
     path: "/me",
@@ -29,17 +56,9 @@ const home = createBrowserRouter([
     element: <Breathe />,
   },
   {
-    path: "/onboarding/1",
-    element: <Onboarding1 />,
-  },
-  {
-    path: "/onboarding/2",
-    element: <Onboarding2 />,
-  },
-  {
-    path: "/onboarding/3",
-    element: <Onboarding3 />,
-  },
+    path: "/test",
+    element: <Test />,
+  }
 ]);
 
 createRoot(document.getElementById('root')!).render(

@@ -1,8 +1,8 @@
 import { Container, Title, Text, Image } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
-import classes from './BreatheHeader.module.css';
+import classes from './BreatheBanner.module.css';
 
-export function BreatheHeader() {
+export function BreatheBanner() {
   const navigate = useNavigate();
 
   const goToBreathePage = () => {

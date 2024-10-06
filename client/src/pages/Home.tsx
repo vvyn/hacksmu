@@ -1,17 +1,31 @@
-import { Container, Title, Text, Image } from '@mantine/core';
-import { useNavigate } from 'react-router-dom';
-import classes from './BreatheHeader.module.css';
+import { Container, Image, Text, Title } from "@mantine/core";
+import { MantineProvider } from '@mantine/core';
+import classes from './Home.module.css';
+import { useEffect, useState } from "react";
+import { getUser } from "../api";
+import { getCookie } from "../cookie";
 
-export function BreatheHeader() {
-  const navigate = useNavigate();
+function Home() {
+  const [user, setUser] = useState<any>(null);
 
-  const goToBreathePage = () => {
-    navigate('/breathe');
-  };
+  useEffect(() => {
+    async function fetchData() {
+      const username = getCookie("username");
+      const data = await getUser(username);
+      setUser(data);
+    }
+
+    fetchData();
+  }, []);
+
+  if (user === null) {
+    return
+  }
 
   return (
-    <div className={classes.root}>
-      <Container size="md" onClick={goToBreathePage}>
+    <>
+    <MantineProvider>
+      <Container size="md">
         <div className={classes.inner}>
           <div className={classes.content}>
           <Text className={classes.welcomeText}>
@@ -21,12 +35,12 @@ export function BreatheHeader() {
                 inherit
                 c='blue'
               >
-                Jessica
+                {user.name}
               </Text>
             </Text>
             <div className={classes.rectangle}>
             <Title className={classes.title} pt={150}>
-              Take a {' '}
+              Total Daily Check-ins: 
               <Text
                 component="span"
                 inherit
@@ -34,11 +48,9 @@ export function BreatheHeader() {
                 gradient={{ from: 'cyan', to: 'blue', deg: 90 }}
                 className={classes.cursive} 
               >
-                deep breath
+                {user.daily.length}
               </Text>
             </Title>
-
-
             <Image
               src="/corgiEarWag.gif"
               alt="Corgi"
@@ -54,6 +66,9 @@ export function BreatheHeader() {
           </div>
         </div>
       </Container>
-    </div>
+    </MantineProvider>
+    </>
   );
 }
+
+export default Home;
