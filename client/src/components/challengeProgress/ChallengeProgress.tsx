@@ -13,55 +13,52 @@ export function ChallengeProgress() {
     <div className={classes.container}>
       <button className="BackButton" onClick={handleBack}>← </button>
 
-      <Text className={classes.title} size="xl" fw={800} c={'blue'}>
-        Walk 10k Steps
+      <Text className={classes.title} size="lg" fw={800} c={'blue'}>
+        Walk 5k Steps
       </Text>
 
       <RingProgress
         ta={Center}
-        sections={[{ value: (3000 / 10000) * 100, color: '#2098F5' }]}
+        sections={[{ value: (3000 / 5000) * 100, color: '#2098F5' }]} // Updated for 5k
         label={
-          <Text size="lg" ta="center" c={'cyan'} fw={700}>
-            3/10k
+          <Text size="lg" ta="center" c={'#2098F5'} fw={700}>
+            3/5k
           </Text>
         }
-        size={120}
+        size={150} // Increased size for the progress ring
         thickness={6}
         rootColor="#d3d3d3"
         className={classes.progressRing}
       />
 
-      <Text className={classes.subTitle} size="lg" fw={600} mt={50} c={'black'}>
-        Challenge Members
+      <Text className={classes.subTitle} size="lg" fw={600} mt={20} c={'black'}>
+        Challenge Friends
       </Text>
-      <Table highlightOnHover>
+      <Table className={classes.memberTable}>
         <tbody>
           <tr>
             <td>
-              <Button variant="outline" size="xs" leftSection={<span>⚫</span>} className={classes.memberButton}>
-                Me
-              </Button>
+              <div className={classes.memberButton}>⚫</div>
+              <span className={classes.memberText}>me</span>
             </td>
           </tr>
           <tr>
             <td>
-              <Button variant="outline" size="xs" leftSection={<span>⚫</span>} className={classes.memberButton}>
-                You
-              </Button>
+              <div className={classes.memberButton}>⚫</div>
+              <span className={classes.memberText}>you</span>
             </td>
           </tr>
           <tr>
             <td>
-              <Button variant="outline" size="xs" leftSection={<span>➕</span>} className={classes.memberButton}>
-                Invite another Friend to Join!
-              </Button>
+              <div className={classes.inviteButton}>➕</div>
+              <span className={classes.inviteText}>Invite another friend to join!</span>
             </td>
           </tr>
         </tbody>
       </Table>
 
       <div className={classes.mentalHealthLinks}>
-        <Text className={classes.subTitle} fz={48} fw={600} mt={60} c={'black'}>
+        <Text className={classes.subTitle} fz={25} fw={600} mt={60} c={'black'}>
           Resources
         </Text>
         <ul>

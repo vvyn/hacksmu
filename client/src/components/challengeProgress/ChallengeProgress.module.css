@@ -1,45 +1,150 @@
+/* ChallengeProgress.module.css */
+
 .container {
-    padding: 20px;
-    justify-content: center;
-    background-color: #f0f8ff;  
-    min-height: 100vh;
-    min-width: 100vw;
-  }
-  
-  .title {
-    text-align: center;
-    margin-bottom: 20px;
-    padding-top: 50px;
-  }
-  
-  .progressRing {
-    display: flex;
-    justify-content: center;  
-    align-items: center;      
-    margin: 0 auto;           
-    margin-bottom: 20px;
-  }
-  
-  .subTitle {
-    margin-bottom: 10px;
-  }
-  
-  .mentalHealthLinks {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .inviteButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-  }
-  .memberButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;  
-    text-align: left;  /* Align text to the left */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  /* Adjust as necessary */
+  background-color: #ffffff;
+  /* Light background color */
+  height: 100vh;
+  /* Full height to align items centrally */
+}
+
+.BackButton {
+  align-self: flex-start;
+  /* Align the back button to the start */
+  background: none;
+  /* No background */
+  border: none;
+  /* No border */
+  font-size: 16px;
+  /* Adjusted font size for the button */
+  color: #6c757d;
+  /* Grey color for the button */
+  cursor: pointer;
+  /* Pointer cursor */
+}
+
+.title {
+  margin-top: 20px;
+  /* Spacing from the top */
+  font-size: 24px;
+  /* Adjusted font size for the title */
+}
+
+.progressRing {
+  margin: 20px 0;
+  /* Space above and below the progress ring */
+  width: 150px;
+  /* Increased width for a bigger ring */
+  height: 150px;
+  /* Increased height for a bigger ring */
+}
+
+.subTitle {
+  margin-top: 30px;
+  /* Less spacing for subtitles */
+  text-align: center;
+  /* Center align the text */
+  font-size: 18px;
+  /* Smaller font size for subtitle */
+}
+
+.memberTable {
+  width: 100%;
+  /* Make the table full width */
+  border-collapse: collapse;
+  /* Collapse borders */
+}
+
+.memberTable td {
+  padding: 12px 0;
+  /* Padding for top and bottom */
+  border-bottom: 1px solid #dcdcdc;
+  /* Bottom border for each row */
+  display: flex;
+  /* Use flex for horizontal alignment */
+  align-items: center;
+  /* Center align items vertically */
+}
+
+.memberButton {
+  border-radius: 50%;
+  /* Circular button */
+  width: 30px;
+  /* Fixed width for member buttons */
+  height: 30px;
+  /* Fixed height for member buttons */
+  background-color: #f0f0f0;
+  /* Light grey background */
+  margin-right: 10px;
+  /* Space between the button and text */
+  display: flex;
+  /* Flexbox for centering the icon */
+  justify-content: center;
+  /* Center the icon horizontally */
+  align-items: center;
+  /* Center the icon vertically */
+}
+
+.memberText {
+  font-size: 16px;
+  /* Font size for member names */
+  color: #000;
+  /* Black color for text */
+}
+
+.inviteButton {
+  border-radius: 50%;
+  /* Circular button */
+  width: 30px;
+  /* Fixed width for invite button */
+  height: 30px;
+  /* Fixed height for invite button */
+  background-color: #f0f0f0;
+  /* Light grey background */
+  margin-right: 10px;
+  /* Space between the button and text */
+}
+
+.inviteText {
+  font-size: 16px;
+  /* Font size for invite text */
+  color: #000;
+  /* Black color for text */
+}
+
+.mentalHealthLinks {
+  margin-top: 30px;
+  /* Space from previous content */
+  text-align: left;
+  /* Align text to left */
+}
+
+.mentalHealthLinks ul {
+  list-style: none;
+  /* Remove bullet points */
+  padding: 0;
+  /* Remove default padding */
+}
+
+.mentalHealthLinks li {
+  margin-bottom: 8px;
+  /* Space between links */
+}
+
+.mentalHealthLinks a {
+  color: #007bff;
+  /* Link color */
+  text-decoration: none;
+  /* No underline */
+  font-size: 14px;
+  /* Smaller font size for links */
+}
+
+.mentalHealthLinks a:hover {
+  text-decoration: underline;
+  /* Underline on hover */
+}
