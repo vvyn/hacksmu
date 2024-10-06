@@ -1,64 +1,59 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 function AddHabit() {
-  const [animationMoving, setAnimationMoving] = useState(false);
-  const [animationComplete, setAnimationComplete] = useState(false);
   const navigate = useNavigate();
 
-  const handleStart = () => {
-    setAnimationMoving(true);
-    setTimeout(() => {
-      setAnimationComplete(true);
-      setAnimationMoving(false);
-    }, 300);
-  };
-
-  const handleContinue = () => {
+  const handleBack = () => {
     navigate('/home');
   };
 
   return (
-    <>
-      <div className="h-screen w-screen bg-gradient-to-br from-[#62BAF4] to-[#56DDF4] justify-center items-center flex flex-col">
-        <div className="relative">
-          <div className="w-52 h-52 bg-white rounded-full flex justify-center items-center">
-            <img src="dog_breathe.png" alt="Dog breathing" />
-          </div>
-
-          <svg
-            className={`absolute top-0 left-0 w-full h-full ${animationMoving ? "animate-progress" : ""}`}
-            viewBox="0 0 100 100"
-          >
-            <circle
-              className="text-[#62BAF4]"
-              cx="50"
-              cy="50"
-              r="45"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="5"
-              strokeDasharray="283"
-              strokeDashoffset="283"
-              style={{
-                transition: animationMoving ? "stroke-dashoffset 30s linear" : "",
-                strokeDashoffset: animationMoving ? "0" : "283",
-              }}
-              transform="rotate(-90 50 50)" 
-            />
-          </svg>
-        </div>
-
-        <div className="py-4 text-4xl font-bold">Breathe</div>
-        <div className="pt-4 pb-8 text-2xl text-white px-8">Don't forget to drink your water today</div>
-        <button
-          className="bg-white w-32 h-12 rounded-full"
-          onClick={animationComplete ? handleContinue : handleStart}
-        >
-          {animationComplete ? "Continue" : "Start"}
-        </button>
+    <div className='p-4'>
+      <div className='flex justify-between mb-16'>
+        <button className="text-sm" onClick={handleBack}>← Back</button>
+        <div className='font-bold text-xl'>Add New Habit</div>
       </div>
-    </>
+      
+      <div className='text-left'>
+        <div className='font-bold text-xs'>NAME</div>
+        <div className='font-bold text-xl'>Daily Step Goal</div>
+        <div className='border-b-2 border-slate-200 my-4'></div>
+      </div>
+
+    <div className='text-left'>
+      <div className='font-bold text-xs'>GOAL</div>
+      <div className="mb-4 mx-4 mt-4 rounded-xl py-3 text-white bg-gradient-to-br from-[#5AD7F5] bg-[#1D95F4]">
+        <span className='ml-4 text-3xl'>10K</span>
+        <div className='mt-2 mx-4 rounded-xl bg-slate-200'>Daily</div>
+      </div>
+    </div>
+
+      <div className="flex items-center space-x-4 mb-8">
+        <div>
+            <div className="bg-[#60D0F3] rounded-full w-16 h-16 flex items-center justify-center text-white text-xl"></div>
+            <div className="text-[#60D0F3]">5k</div>
+        </div>
+        <div>
+            <div className="bg-[#1D95F4] rounded-full w-16 h-16 flex items-center justify-center text-white text-xl">✓</div>
+            <div className="text-[#1D95F4]">10k</div>
+        </div>
+        <div>
+            <div className="bg-[#60D0F3] rounded-full w-16 h-16 flex items-center justify-center text-white text-xl"></div>
+            <div className="text-[#60D0F3]">15k</div>
+        </div>
+        <div>
+            <div className="bg-[#60D0F3] rounded-full w-16 h-16 flex items-center justify-center text-white text-xl"></div>
+            <div className="text-[#60D0F3]">custom</div>
+        </div>
+      </div>
+
+      <div className='text-left'>
+        <div className='font-bold text-xs mb-4'>REMINDERS</div>
+      </div>
+
+      <button className="w-3/4 mx-2 mt-2 rounded-full py-3 text-black bg-gradient-to-br from-[#F3F4F6] to-[#FFFFFF]">Add Reminder</button>
+      <button className="w-3/4 mx-4 mt-4 rounded-full py-3 text-white bg-gradient-to-br from-[#1D95F4] to-[#5AD7F5]">Let's Go →</button>
+    </div>
   );
 }
 
